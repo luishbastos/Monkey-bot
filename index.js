@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES",'GUILD_PRESENCES',"GUILD_MEMBERS", "GUILD_VOICE_STATES"]})
-const { token } = require('./config.json');
+require('dotenv').config()
 const { prefix } = require('./config.json');
 const express = require('express');
 const app = express();
@@ -35,7 +35,5 @@ client.on("messageCreate", message => {
 });
 
 
-
-
-// Login to Discord with your client's token
-client.login(token);
+//Login using your token
+client.login(process.env.BOT_TOKEN);
